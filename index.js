@@ -2,6 +2,8 @@ const express = require("express");
 const http = require("http");
 const WebSocket = require("ws");
 const uid2 = require("uid2");
+const mongoose = require("mongoose");
+mongoose.connect("mongodb://localhost/bike-chat");
 
 const app = express();
 
@@ -13,6 +15,7 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 wss.on("connection", function connection(ws, req) {
+  console.log("someone connected");
   ws.on("message", function incoming(data) {
     try {
       const dataJSON = JSON.parse(data);
