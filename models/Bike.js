@@ -8,4 +8,4 @@ const BikeModel = mongoose.model("Bike", {
   }
 });
 
-module.exports = UserModel;
+module.exports = BikeModel;
